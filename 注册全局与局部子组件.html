@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+  
+        var Footer1 = {
+            template:`
+                <div>footer信息</div>
+            `,
+        }
+        var App = {
+            template:`
+                <div>
+                    <h1>第一个组件</h1>
+                    <button @click="clickMe">按钮</button>
+                    <top-nav :en="en"/>
+                    <footer1></footer1>
+                </div>
+            `,
+            data(){
+                return{
+                    str:'成功',
+                    en:['php','ui','test','web','java'],
+                };
+            },
+            methods: {
+                clickMe(){
+                    console.log(this);
+                }
+            },
+            components:{
+                'footer1':Footer1
+            }
+        }
+
+        var TopNav = {
+            template: `
+                <div>
+
+                    <h1 v-for="(item,index) in en" :key="index">
+                        {{item}}
+                    </h1>
+                </div>
+            `,
+            data() {
+                return {
+                    str: '我是儿子，好帅',
+                };
+            },
+            props:['en']
+        }
+        Vue.component('top-nav',TopNav);
+
+
+        new Vue({
+            el:'#app',
+            render:r=>r(App),
+        });
+    </script>
+</body>
+</html>

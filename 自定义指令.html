@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            template:`
+                <div>
+                    <p v-change-style="name">{{str}}</p>                    //""表示变量！！！要是加字符串的话字符串需要加单引号！！！1
+                    <button @click="clickMe">点我！！！！</button>
+                </div>
+            `,
+            data(){
+                return{
+                    str:'你好面试官！！！！！！！！',
+                    name:'你好啊！！！！！',
+                };
+            },
+            methods:{
+                clickMe(){
+                    console.log(this.$options)
+                    this.name = '我好！！！！！！';
+                }
+            },
+
+            directives:{                                            //自定义指令模块
+                changeStyle:{                                       //自定义指令名称    
+                    bind(el,binding){                                                   
+                        console.log(el,31);
+                        console.log(binding,32);
+                        el.style.color = 'snow';
+                        el.style.backgroundColor = 'red';
+                        console.log(binding.value,35);
+                    },
+                    update(el,binding){
+                        console.log('自定义指令触发');
+                        console.log(el,binding);
+                    },
+                    unbind(){},
+                },
+            }
+        })
+    </script>
+</body>
+</html>

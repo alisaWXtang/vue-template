@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;padding:0
+        }
+        #dv1{
+            width:500px;
+            height: 500px;
+            background: red;
+            color: snow;
+        }
+        #dv2{
+            width:400px;
+            height: 400px;
+            background: purple;
+            color: snow;
+        }
+        #dv3{
+            width:300px;
+            height: 300px;
+            background: green;
+            color: snow;
+        }
+        #dv4{
+            width:200px;
+            height: 200px;
+            background: yellow;
+            color: snow;
+        }
+        #dv5{
+            width:100px;
+            height: 100px;
+            background: blue;
+            color: snow;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        var vm  = new Vue({
+            el:'#app',
+            template:`
+            <div>
+                <div id="dv1" @click="clickDv1">
+                    我是dv1
+                    <div id="dv2" @click="clickDv2">我是dv2
+                        <div id="dv3" @click="clickDv3">我是dv3
+                            <div id="dv4" @click.stop="clickDv4">我是dv4
+                                <div id="dv5" @click.once="clickDv5">
+                                    我是dv5
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`,
+            data(){
+                return{
+
+                };
+            },
+            methods: {
+                clickDv1(e){
+                    console.log(e);
+                    alert('dv1')
+                },
+                clickDv2(e){
+                    console.log(e);
+                    alert('dv2')
+                },
+                clickDv3(e){
+                    console.log(e);
+                    alert('dv3')
+                },
+                clickDv4(e){
+                    console.log(e);
+                    alert('dv4')
+                },
+                clickDv5(e){
+                    console.log(e);
+                    alert('dv5')
+                },
+            },
+        })
+    </script>
+</body>
+</html>
