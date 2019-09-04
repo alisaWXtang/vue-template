@@ -11,15 +11,21 @@ const inset={
     data(){
         return{
             name:'',
-            gender:'男',
+            gender:'女',
         }
     },
     methods: {
         adddata(){
-
+            const maxid = this.$options.methods.getmaxvalue(this.list);
+            this.list.push({
+                id:maxid.toString(),
+                name:this.name,
+                gender:this.gender,
+            });
+            console.log(this.list);
         },
         getmaxvalue(list){
-            let maxid = parseInt(list[0].id);
+            let maxid = parseInt(list[1].id);
             list.forEach(item=>{
                 if(parseInt(item.id)>maxid){
                     maxid = parseInt(item.id);

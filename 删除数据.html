@@ -10,11 +10,12 @@
     <div id="app"></div>
     <script src="./components/PersonList.js"></script>
     <script src="./components/App.js"></script>
-    
+    <script src="./components/inset.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         Vue.component('person-list',PersonList)
-        Vue.component('')
+        Vue.component('inset',inset)
         new Vue({
             el:"#app",
             render:h=>h(App),

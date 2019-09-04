@@ -1,8 +1,7 @@
 const App = {
     template:`
         <div>
-            <person-list :list="persons"/><hr/>
-            <inset  :list="persons"/>
+            <inset/>
         </div>
     `,
     data(){
