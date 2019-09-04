@@ -17,6 +17,7 @@ const updata = {
             gender: '男',
             person: {},
         }
+        
     },
     methods:{
         selectdatabyid(){
